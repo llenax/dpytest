@@ -1,9 +1,8 @@
 import os
 from dotenv import load_dotenv
-from app.main import client
+from app.main import app
 
 load_dotenv()
 
-
 if __name__ == "__main__":
-  client.run(os.getenv("DISCORD_TOKEN"))
+  app.run()

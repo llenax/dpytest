@@ -1,9 +1,10 @@
 import os
 import discord
 from discord.ext import commands
-
 from flask import Flask
+
 app= Flask(__name__)
+
 @app.route('/')
 def index():
   return "<h1>Welcome to CodingX</h1>"
@@ -17,3 +18,5 @@ async def on_ready():
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
+
+client.run(os.getenv("DISCORD_TOKEN"))
